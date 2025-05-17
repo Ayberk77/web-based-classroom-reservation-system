@@ -1,0 +1,32 @@
+@page
+@model AdminFeedbackModel
+@{
+    ViewData["Title"] = "Class Feedback Report";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Class Feedback</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Classroom</th>
+            <th>Average Rating</th>
+            <th>Total Feedback</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model.FeedbackSummary)
+        {
+            <tr>
+                <td>@f.ClassroomName</td>
+                <td>@f.AverageRating.ToString("0.0")</td>
+                <td>@f.Count</td>
+                <td>
+                    <a class="btn btn-sm btn-info" asp-page="FeedbackDetail" asp-route-id="@f.ClassroomId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

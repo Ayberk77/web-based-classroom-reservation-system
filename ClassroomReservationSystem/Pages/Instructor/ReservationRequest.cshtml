@@ -1,0 +1,42 @@
+@page
+@model ReservationRequestModel
+@{
+    ViewData["Title"] = "New Reservation Request";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Classroom Reservation</h1>
+
+@if (!string.IsNullOrEmpty(Model.WarningMessage))
+{
+    <div class="alert alert-warning">@Model.WarningMessage</div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Input.ClassroomId" class="form-label">Classroom</label>
+        <select asp-for="Input.ClassroomId" class="form-select" asp-items="Model.ClassroomOptions"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Input.DayOfWeek" class="form-label">Day of Week</label>
+        <select asp-for="Input.DayOfWeek" class="form-select">
+            @foreach (var day in Enum.GetValues(typeof(DayOfWeek)))
+            {
+                <option value="@day">@day</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Input.StartTime" class="form-label">Start Time</label>
+        <input asp-for="Input.StartTime" class="form-control" type="time" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Input.EndTime" class="form-label">End Time</label>
+        <input asp-for="Input.EndTime" class="form-control" type="time" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit Request</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

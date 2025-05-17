@@ -1,0 +1,72 @@
+@page
+@model ClassInformationModel
+@{
+    ViewData["Title"] = "Class Information";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Classroom Schedule</h1>
+
+<form method="get" class="mb-4">
+    <div class="input-group w-50">
+        <select class="form-select" name="classroomId" onchange="this.form.submit()">
+            <option value="">-- Select Classroom --</option>
+            @foreach (var c in Model.Classrooms)
+            {
+                <option value="@c.Id" selected="@(Model.SelectedClassroomId == c.Id)"> @c.Name </option>
+            }
+        </select>
+    </div>
+</form>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+<div id="calendar"></div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                eventTimeFormat: {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: false
+                },
+                eventDisplay: 'block',
+                eventContent: function (info) {
+                    const start = new Date(info.event.start);
+                    const end = new Date(info.event.end);
+
+                    const formatTime = (date) => {
+                        return date.getHours().toString().padStart(2, '0') + ':' +
+                            date.getMinutes().toString().padStart(2, '0');
+                    };
+
+                    const timeRange = formatTime(start) + ' - ' + formatTime(end);
+
+                    return {
+                        html: `
+                            <div style="display:flex; flex-direction:column; justify-content:center; height:100%; font-size:0.9em; line-height:1.2;">
+                                <div><strong>${timeRange}</strong></div>
+                                <div>${info.event.title}</div>
+                            </div>
+                        `
+                    };
+                },
+
+                events: [
+                    @Html.Raw(string.Join(",", Model.Reservations.Select(r => $@"{{
+                        title: '{r.InstructorName}',
+                        start: '{r.StartTime:yyyy-MM-ddTHH:mm:ss}',
+                        end: '{r.EndTime:yyyy-MM-ddTHH:mm:ss}',
+                        color: 'green'
+                    }}")))
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+}

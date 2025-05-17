@@ -1,0 +1,34 @@
+@page "{id:int}"
+@model EditInstructorModel
+@{
+    ViewData["Title"] = "Edit Instructor";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Edit Instructor</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            <input type="hidden" asp-for="Input.Id" />
+            <div class="mb-3">
+                <label asp-for="Input.FullName" class="form-label">Full Name</label>
+                <input asp-for="Input.FullName" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.Email" class="form-label">Email</label>
+                <input asp-for="Input.Email" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.Password" class="form-label">New Password (leave blank to keep current)</label>
+                <input asp-for="Input.Password" class="form-control" type="password" />
+            </div>
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a asp-page="/Admin/Users" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

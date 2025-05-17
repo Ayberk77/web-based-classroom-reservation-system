@@ -1,0 +1,40 @@
+@page
+@model AdminIndexModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Admin Dashboard</h1>
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card bg-primary text-white h-100">
+            <div class="card-body">Instructors: @Model.InstructorCount</div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card bg-warning text-dark h-100">
+            <div class="card-body">Pending Reservations: @Model.PendingReservations</div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card bg-success text-white h-100">
+            <div class="card-body">Active Term: @Model.ActiveTerm</div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card bg-info text-white h-100">
+            <div class="card-body">Classrooms: @Model.ClassroomCount</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <a class="btn btn-outline-primary w-100 mb-2" asp-page="/Admin/Terms">Manage Terms</a>
+        <a class="btn btn-outline-secondary w-100 mb-2" asp-page="/Admin/Users">Manage Instructors</a>
+    </div>
+    <div class="col-md-6">
+        <a class="btn btn-outline-warning w-100 mb-2" asp-page="/Admin/Reservations">Review Reservations</a>
+        <a class="btn btn-outline-info w-100 mb-2" asp-page="/Admin/Feedback">Class Feedback</a>
+    </div>
+</div>

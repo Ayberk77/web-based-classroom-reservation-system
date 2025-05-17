@@ -1,0 +1,56 @@
+@page
+@model AdminTermsModel
+@{
+    ViewData["Title"] = "Term Management";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Manage Terms</h1>
+
+<div class="card mb-4">
+    <div class="card-header">Add New Term</div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="NewTerm.Name" class="form-label">Term Name</label>
+                <input asp-for="NewTerm.Name" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewTerm.StartDate" class="form-label">Start Date</label>
+                <input asp-for="NewTerm.StartDate" class="form-control" type="date" />
+            </div>
+            <div class="mb-3">
+                <label asp-for="NewTerm.EndDate" class="form-label">End Date</label>
+                <input asp-for="NewTerm.EndDate" class="form-control" type="date" />
+            </div>
+            <button type="submit" class="btn btn-primary">Add Term</button>
+        </form>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var term in Model.Terms)
+        {
+            <tr>
+                <td>@term.Name</td>
+                <td>@term.StartDate.ToShortDateString()</td>
+                <td>@term.EndDate.ToShortDateString()</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" asp-page="EditTerm" asp-route-id="@term.Id">Edit</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@term.Id" class="d-inline">
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this term?')">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

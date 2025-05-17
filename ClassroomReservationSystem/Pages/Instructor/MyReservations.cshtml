@@ -1,0 +1,54 @@
+@page
+@model MyReservationsModel
+@{
+    ViewData["Title"] = "My Reservations";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">My Reservation Requests</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Classroom</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var r in Model.Reservations)
+    {
+        <tr>
+            <td>@r.StartTime.ToShortDateString()</td>
+            <td>@r.StartTime.ToShortTimeString()</td>
+            <td>@r.EndTime.ToShortTimeString()</td>
+            <td>@r.ClassroomName</td>
+            <td>
+                @if (r.Status == "Approved") {
+                    <span class="badge bg-success">Approved</span>
+                } else if (r.Status == "Pending") {
+                    <span class="badge bg-warning text-dark">Pending</span>
+                } else {
+                    <span class="badge bg-danger">Rejected</span>
+                }
+            </td>
+            <td>
+                @if (r.Status == "Pending") {
+                    <form method="post">
+                        <input type="hidden" name="id" value="@r.Id" />
+                        <button type="submit" class="btn btn-sm btn-danger">Cancel</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

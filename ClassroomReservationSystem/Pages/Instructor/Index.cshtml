@@ -1,0 +1,39 @@
+@page
+@model InstructorIndexModel
+@{
+    ViewData["Title"] = "Instructor Dashboard";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Welcome, @Model.InstructorName</h1>
+
+@if (!string.IsNullOrEmpty(Model.ActiveTerm))
+{
+    <div class="alert alert-success">
+        Active Term: <strong>@Model.ActiveTerm</strong>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        No active term defined by admin.
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Approved Reservations: @Model.ApprovedCount</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card bg-warning text-dark mb-4">
+            <div class="card-body">Pending Requests: @Model.PendingCount</div>
+        </div>
+    </div>
+    <div class="col-md-4 d-flex flex-column gap-2">
+        <a asp-page="/Instructor/ReservationRequest" class="btn btn-outline-success">New Reservation Request</a>
+        <a asp-page="/Instructor/MyReservations" class="btn btn-outline-primary">My Reservations</a>
+        <a asp-page="/Instructor/Calendar" class="btn btn-outline-info">View Calendar</a>
+    </div>
+</div>

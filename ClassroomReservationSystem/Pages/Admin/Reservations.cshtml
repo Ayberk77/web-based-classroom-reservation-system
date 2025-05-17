@@ -1,0 +1,47 @@
+@page
+@model AdminReservationsModel
+@{
+    ViewData["Title"] = "Reservation Review";
+    Layout = "_Layout";
+}
+
+<h1 class="mt-4">Review Reservation Requests</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Instructor</th>
+            <th>Classroom</th>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model.Reservations)
+        {
+            var rowClass = r.IsHoliday ? "table-danger" : r.IsConflicting ? "table-warning" : "";
+            <tr class="@rowClass">
+                <td>@r.InstructorName</td>
+                <td>@r.ClassroomName</td>
+                <td>@r.StartTime.ToShortDateString()</td>
+                <td>@r.StartTime.ToShortTimeString()</td>
+                <td>@r.EndTime.ToShortTimeString()</td>
+                <td>@r.Status</td>
+                <td>
+                    @if (r.Status == "Pending" && !r.IsConflicting)
+                    {
+                        <form method="post" asp-page-handler="Approve" asp-route-id="@r.Id" class="d-inline">
+                            <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                        </form>
+                        <form method="post" asp-page-handler="Reject" asp-route-id="@r.Id" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
