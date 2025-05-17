@@ -10,7 +10,6 @@
 <form method="get" class="mb-4">
     <div class="input-group w-50">
         <select class="form-select" name="classroomId" onchange="this.form.submit()">
-            <option value="">-- Select Classroom --</option>
             @foreach (var c in Model.Classrooms)
             {
                 <option value="@c.Id" selected="@(Model.SelectedClassroomId == c.Id)"> @c.Name </option>
@@ -24,6 +23,67 @@
 
 <div id="calendar"></div>
 
+@if (User.IsInRole("Admin") && Model.Feedbacks.Any())
+{
+    <h3 class="mt-4">Feedback Summary</h3>
+         @if (Model.AverageRating.HasValue)
+        {
+            <p><strong>Average Rating:</strong>
+                @Model.AverageRating.Value.ToString("0.0")
+                @{
+                    double rating = Model.AverageRating ?? 0;
+                }
+
+                @for (int i = 1; i <= 5; i++)
+                {
+                    if (i <= Math.Floor(rating))
+                    {
+                        <span class="text-warning">★</span> <!-- full -->
+                    }
+                    else if (i - rating < 1)
+                    {
+                        <span class="text-warning">⯪</span> <!-- half (you can customize symbol) -->
+                    }
+                    else
+                    {
+                        <span class="text-warning">☆</span> <!-- empty -->
+                    }
+                }
+
+            </p>
+        }
+        else
+        {
+            <p><strong>Average Rating:</strong> <span class="text-muted">No feedback</span></p>
+        }
+
+
+    <ul class="list-group">
+        @foreach (var f in Model.Feedbacks)
+        {
+            <li class="list-group-item">
+                <strong>@f.InstructorName</strong> 
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <span class="text-warning">
+                        @(i <= f.Rating ? "★" : "☆")
+                    </span>
+                }
+                <br />
+                <span>@f.Comment</span>
+                <div class="text-muted small">@f.CreatedAt.ToString("g")</div>
+            </li>
+        }
+    </ul>
+}
+
+
+@if (Model.SelectedClassroomId != 0)
+{
+    <div id="calendar"></div>
+
+
+
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -35,6 +95,9 @@
                     minute: '2-digit',
                     hour12: false
                 },
+                firstDay: 1,
+                contentHeight: 'auto',
+                dayMaxEventRows: true,
                 eventDisplay: 'block',
                 eventContent: function (info) {
                     const start = new Date(info.event.start);
@@ -67,6 +130,21 @@
                 ]
             });
             calendar.render();
+            setTimeout(() => {
+            const weekRows = document.querySelectorAll('.fc-daygrid-body tr');
+            weekRows.forEach(row => {
+                row.style.cursor = 'pointer';
+                row.addEventListener('click', () => {
+                    const firstCell = row.querySelector('[data-date]');
+                    if (!firstCell) return;
+                    const mondayDate = firstCell.getAttribute('data-date');
+                    const classroomId = '@Model.SelectedClassroomId';
+                    window.location.href = `ClassWeekView?week=${mondayDate}&classroomId=${classroomId}`;
+                });
+            });
+        }, 10);
+
         });
     </script>
+}
 }

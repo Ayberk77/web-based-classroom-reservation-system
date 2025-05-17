@@ -1,39 +1,56 @@
 @page
 @model InstructorIndexModel
 @{
-    ViewData["Title"] = "Instructor Dashboard";
+    ViewData["Title"] = "Dashboard";
     Layout = "_Layout";
 }
 
-<h1 class="mt-4">Welcome, @Model.InstructorName</h1>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
-@if (!string.IsNullOrEmpty(Model.ActiveTerm))
-{
-    <div class="alert alert-success">
-        Active Term: <strong>@Model.ActiveTerm</strong>
+<h2 class="mb-4">Welcome, <strong>@Model.InstructorName</strong></h2>
+
+<div class="alert alert-info">
+    <strong>Active Term:</strong> <span class="fw-bold text-primary">@Model.ActiveTerm</span>
+</div>
+
+<div class="row text-center mb-4">
+    <div class="col-md-6">
+        <div class="card bg-primary text-white mb-3">
+            <div class="card-body">
+                <h5>Approved Reservations</h5>
+                <h2>@Model.ApprovedCount</h2>
+            </div>
+        </div>
     </div>
-}
-else
-{
-    <div class="alert alert-warning">
-        No active term defined by admin.
+    <div class="col-md-6">
+        <div class="card bg-warning text-dark mb-3">
+            <div class="card-body">
+                <h5>Pending Requests</h5>
+                <h2>@Model.PendingCount</h2>
+            </div>
+        </div>
     </div>
-}
+</div>
 
 <div class="row">
-    <div class="col-md-4">
-        <div class="card bg-primary text-white mb-4">
-            <div class="card-body">Approved Reservations: @Model.ApprovedCount</div>
-        </div>
+    <div class="col-md-3 mb-2">
+        <a class="btn btn-outline-success w-100" asp-page="/Instructor/ReservationRequest">
+            <i class="bi bi-plus-circle me-1"></i> New Reservation
+        </a>
     </div>
-    <div class="col-md-4">
-        <div class="card bg-warning text-dark mb-4">
-            <div class="card-body">Pending Requests: @Model.PendingCount</div>
-        </div>
+    <div class="col-md-3 mb-2">
+        <a class="btn btn-outline-primary w-100" asp-page="/Instructor/MyReservations">
+            <i class="bi bi-list-check me-1"></i> My Reservations
+        </a>
     </div>
-    <div class="col-md-4 d-flex flex-column gap-2">
-        <a asp-page="/Instructor/ReservationRequest" class="btn btn-outline-success">New Reservation Request</a>
-        <a asp-page="/Instructor/MyReservations" class="btn btn-outline-primary">My Reservations</a>
-        <a asp-page="/Instructor/Calendar" class="btn btn-outline-info">View Calendar</a>
+    <div class="col-md-3 mb-2">
+        <a class="btn btn-outline-secondary w-100" asp-page="/Instructor/Calendar">
+            <i class="bi bi-calendar-week me-1"></i> View Calendar
+        </a>
+    </div>
+    <div class="col-md-3 mb-2">
+        <a class="btn btn-outline-info w-100" asp-page="/Instructor/SubmitFeedback">
+            <i class="bi bi-chat-dots me-1"></i> Submit Feedback
+        </a>
     </div>
 </div>

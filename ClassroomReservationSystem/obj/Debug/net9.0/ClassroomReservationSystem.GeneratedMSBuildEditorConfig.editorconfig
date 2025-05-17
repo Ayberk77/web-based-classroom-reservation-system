@@ -40,14 +40,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdFRlcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Admin/Feedback.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRmVlZGJhY2suY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Admin/FeedbackDetail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRmVlZGJhY2tEZXRhaWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,6 +58,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/ClassInformation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3NJbmZvcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/ClassWeekView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2xhc3NXZWVrVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Error.cshtml]
@@ -90,6 +86,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Instructor/ReservationRequest.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdHJ1Y3RvclxSZXNlcnZhdGlvblJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Instructor/SubmitFeedback.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5zdHJ1Y3RvclxTdWJtaXRGZWVkYmFjay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Instructor/WeekView.cshtml]

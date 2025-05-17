@@ -79,7 +79,6 @@
                             <a class="nav-link" asp-page="/Admin/Terms">Terms</a>
                             <a class="nav-link" asp-page="/Admin/Users">Instructors</a>
                             <a class="nav-link" asp-page="/Admin/Reservations">Reservations</a>
-                            <a class="nav-link" asp-page="/Admin/Feedback">Feedback</a>
                         }
                         else if (HttpContextAccessor.HttpContext?.User?.IsInRole("Instructor") == true)
                         {
@@ -92,13 +91,14 @@
                             <a class="nav-link" asp-page="/Instructor/ReservationRequest">New Reservation</a>
                             <a class="nav-link" asp-page="/Instructor/MyReservations">My Reservations</a>
                             <a class="nav-link" asp-page="/Instructor/Calendar">View Calendar</a>
+                            <a class="nav-link" asp-page="/Instructor/SubmitFeedback">Contact Us</a>
                         }
                     </div>
 
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    @User.Identity?.Name
+                    <span>@User.FindFirst("FullName")?.Value</span>
                 </div>
             </nav>
         </div>

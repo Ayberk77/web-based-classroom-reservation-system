@@ -1,14 +1,32 @@
-namespace ClassroomReservationSystem.Models;
-public class Feedback
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ClassroomReservationSystem.Models
 {
-    public int Id { get; set; }
+    public class Feedback
+    {
+        public int Id { get; set; }
 
-    public int ClassroomId { get; set; }       
-    public Classroom Classroom { get; set; } = default!;
+        [Required]
+        public int ClassroomId { get; set; }
 
-    public int UserId { get; set; }
-    public User User { get; set; } = default!;
+        [Required]
+        public int InstructorId { get; set; }
 
-    public int Rating { get; set; } // 1 to 5
-    public string? Comment { get; set; }
+        [Range(1, 5)]
+        public int Rating { get; set; }
+
+        [MaxLength(1000)]
+        public string Comment { get; set; } = string.Empty;
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        // Navigation properties
+        [ForeignKey("InstructorId")]
+        public User? Instructor { get; set; }
+
+        [ForeignKey("ClassroomId")]
+        public Classroom? Classroom { get; set; }
+    }
 }

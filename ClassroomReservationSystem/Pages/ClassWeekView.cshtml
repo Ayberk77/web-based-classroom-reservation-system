@@ -1,11 +1,18 @@
 @page
-@model CalendarModel
+@model ClassWeekViewModel
 @{
-    ViewData["Title"] = "Reservation Calendar";
+    ViewData["Title"] = "Class Weekly Schedule";
     Layout = "_Layout";
 }
 
-<h1 class="mt-4">My Reservation Calendar</h1>
+
+
+<h1 class="mt-2">Weekly Schedule for Classroom</h1>
+
+<a asp-page="ClassInformation" asp-route-classroomId="@Model.SelectedClassroomId" class="btn btn-outline-primary mb-3">
+    ← Back to Monthly View
+</a>
+
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 
@@ -16,25 +23,28 @@
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
+                initialView: 'timeGridWeek',
+                initialDate: '@Model.SelectedWeek.ToString("yyyy-MM-dd")',
+                firstDay: 1,
+                allDaySlot: false,
+                contentHeight: 'auto',
+                dayHeaderContent: function(info) {
+                    return info.date.toLocaleDateString('en-US', { weekday: 'long' });
+                },
                 eventTimeFormat: {
-                    hour: 'numeric',
+                    hour: '2-digit',
                     minute: '2-digit',
                     hour12: false
                 },
-                contentHeight: 'auto',
-                dayMaxEventRows: true,
-                firstDay: 1,
-                eventDisplay: 'block',
+                slotLabelFormat: {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                },
                 eventContent: function (info) {
                     const start = new Date(info.event.start);
                     const end = new Date(info.event.end);
-
-                    const formatTime = (date) => {
-                        return date.getHours().toString().padStart(2, '0') + ':' +
-                            date.getMinutes().toString().padStart(2, '0');
-                    };
-
+                    const formatTime = (date) => date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
                     const timeRange = formatTime(start) + ' - ' + formatTime(end);
 
                     return {
@@ -42,43 +52,25 @@
                             <div style="display:flex; flex-direction:column; justify-content:center; height:100%; font-size:0.9em; line-height:1.2;">
                                 <div><strong>${timeRange}</strong></div>
                                 <div>${info.event.title}</div>
-                                <div>${info.event.extendedProps.description}</div>
                             </div>
                         `
                     };
                 },
-
-
                 events: [
                     @foreach (var r in Model.Reservations)
                     {
                         <text>
                         {
-                            title: '@r.ClassroomName',
+                            title: '@r.InstructorName',
                             start: '@r.StartTime.ToString("s")',
                             end: '@r.EndTime.ToString("s")',
-                            backgroundColor: '@(r.Status == "Approved" ? "green" : r.Status == "Pending" ? "orange" : "red")',
-                            description: '@r.Status'
+                            backgroundColor: 'green'
                         },
                         </text>
-
                     }
                 ]
-
             });
             calendar.render();
-            setTimeout(() => {
-                const weekRows = document.querySelectorAll('.fc-daygrid-body tr');
-                weekRows.forEach(row => {
-                    row.style.cursor = 'pointer';
-                    row.addEventListener('click', () => {
-                        const firstCell = row.querySelector('[data-date]');
-                        if (!firstCell) return;
-                        const mondayDate = firstCell.getAttribute('data-date');
-                        window.location.href = `/Instructor/WeekView?week=${mondayDate}`;
-                    });
-                });
-            }, 10);
         });
     </script>
 }

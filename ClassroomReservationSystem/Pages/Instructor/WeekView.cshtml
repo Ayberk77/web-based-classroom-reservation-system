@@ -5,7 +5,12 @@
     Layout = "_Layout";
 }
 
+
 <h1 class="mt-4">Weekly Reservation Schedule</h1>
+
+<a asp-page="/Instructor/Calendar" class="btn btn-outline-primary mb-3">
+    ← Back to Monthly View
+</a>
 
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
@@ -20,6 +25,7 @@
                 initialView: 'timeGridWeek',
                 initialDate: '@Model.SelectedWeek.ToString("yyyy-MM-dd")',
                 allDaySlot: false,
+                firstDay: 1,
                 dayHeaderContent: function(info) {
                     return info.date.toLocaleDateString('en-US', { weekday: 'long' });
                 },
@@ -29,6 +35,13 @@
                     minute: '2-digit',
                     hour12: false
                 },
+                slotLabelFormat: {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: false
+                },
+                contentHeight: 'auto',
+                dayMaxEventRows: true,
                 eventContent: function (info) {
                     const start = new Date(info.event.start);
                     const end = new Date(info.event.end);
