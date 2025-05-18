@@ -41,6 +41,11 @@
                     minute: '2-digit',
                     hour12: false
                 },
+                headerToolbar: {
+                    left: '',        
+                    center: 'title', 
+                    right: ''        
+                },
                 eventContent: function (info) {
                     const start = new Date(info.event.start);
                     const end = new Date(info.event.end);

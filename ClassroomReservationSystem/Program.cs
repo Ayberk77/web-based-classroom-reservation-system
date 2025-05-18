@@ -14,6 +14,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddAuthorization();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddTransient<IEmailSender, SmtpEmailSender>();
+builder.Services.AddSingleton<HolidayService>();
+builder.Services.AddScoped<ILogService, LogService>();
 builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeFolder("/");
@@ -34,8 +36,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseStatusCodePagesWithReExecute("/Error", "?code={0}");
+app.UseExceptionHandler("/Error");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseRouting();
 

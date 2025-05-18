@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DN/UtxIqX6CG5boqP9ae0QcNGFFJa+0hUWJpLr+mXYU=",
+  "Hash": "pjjQD37nV+lRMaukly3lKL8w+fjN8EvstQMfjwCc6FM=",
   "Source": "ClassroomReservationSystem",
   "BasePath": "_content/ClassroomReservationSystem",
   "Mode": "Default",
@@ -185,12 +185,12 @@
       "OriginalItemSpec": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-dqle62frat.gz",
+      "Identity": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-oyvx5yje4d.gz",
       "SourceId": "ClassroomReservationSystem",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/ClassroomReservationSystem",
-      "RelativePath": "js/scripts#[.{fingerprint=dqle62frat}]?.js.gz",
+      "RelativePath": "js/scripts#[.{fingerprint=oyvx5yje4d}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -199,8 +199,8 @@
       "RelatedAsset": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\wwwroot\\js\\scripts.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "hrqlwsyzkp",
-      "Integrity": "Q5Un8IEsBVvYl3vxwko9zxF7vGgboOQ/g627MbxXmyI=",
+      "Fingerprint": "eur1kzar4b",
+      "Integrity": "ylxySJmyEFKVLXPTZlQyANCg0UBRzM+clpmvow+IiPU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\wwwroot\\js\\scripts.js"
@@ -1774,8 +1774,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dqle62frat",
-      "Integrity": "hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720=",
+      "Fingerprint": "oyvx5yje4d",
+      "Integrity": "8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\scripts.js"
@@ -4578,7 +4578,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4639,7 +4639,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4684,7 +4684,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4739,7 +4739,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4800,7 +4800,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4845,7 +4845,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4900,7 +4900,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4953,7 +4953,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4990,7 +4990,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5037,7 +5037,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5090,7 +5090,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5127,7 +5127,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 16 May 2025 15:07:33 GMT"
+          "Value": "Sun, 18 May 2025 18:55:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5174,7 +5174,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 13:56:37 GMT"
+          "Value": "Sun, 18 May 2025 19:55:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5235,7 +5235,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 13:56:37 GMT"
+          "Value": "Sun, 18 May 2025 19:55:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5280,7 +5280,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 13:56:37 GMT"
+          "Value": "Sun, 18 May 2025 19:55:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5335,7 +5335,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 13:56:37 GMT"
+          "Value": "Sun, 18 May 2025 19:55:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5388,7 +5388,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 13:56:37 GMT"
+          "Value": "Sun, 18 May 2025 19:55:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5425,7 +5425,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 13:56:37 GMT"
+          "Value": "Sun, 18 May 2025 19:55:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6342,13 +6342,13 @@
       ]
     },
     {
-      "Route": "js/scripts.dqle62frat.js",
-      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-dqle62frat.gz",
+      "Route": "js/scripts.js",
+      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-oyvx5yje4d.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.002178649237"
+          "Quality": "0.002159827214"
         }
       ],
       "ResponseHeaders": [
@@ -6358,19 +6358,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "458"
+          "Value": "462"
         },
         {
           "Name": "ETag",
-          "Value": "\"Q5Un8IEsBVvYl3vxwko9zxF7vGgboOQ/g627MbxXmyI=\""
+          "Value": "\"ylxySJmyEFKVLXPTZlQyANCg0UBRzM+clpmvow+IiPU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 14:26:30 GMT"
+          "Value": "Sun, 18 May 2025 19:55:39 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -6386,26 +6386,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720=\""
+          "Value": "W/\"8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "dqle62frat"
-        },
-        {
-          "Name": "label",
-          "Value": "js/scripts.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720="
+          "Value": "sha256-8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA="
         }
       ]
     },
     {
-      "Route": "js/scripts.dqle62frat.js",
+      "Route": "js/scripts.js",
       "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\wwwroot\\js\\scripts.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6415,7 +6407,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "976"
+          "Value": "982"
         },
         {
           "Name": "Content-Type",
@@ -6423,11 +6415,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720=\""
+          "Value": "\"8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 14:26:30 GMT"
+          "Value": "Sun, 18 May 2025 19:55:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA="
+        }
+      ]
+    },
+    {
+      "Route": "js/scripts.js.gz",
+      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-oyvx5yje4d.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "462"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ylxySJmyEFKVLXPTZlQyANCg0UBRzM+clpmvow+IiPU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 18 May 2025 19:55:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ylxySJmyEFKVLXPTZlQyANCg0UBRzM+clpmvow+IiPU="
+        }
+      ]
+    },
+    {
+      "Route": "js/scripts.oyvx5yje4d.js",
+      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-oyvx5yje4d.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002159827214"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "462"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ylxySJmyEFKVLXPTZlQyANCg0UBRzM+clpmvow+IiPU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 18 May 2025 19:55:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oyvx5yje4d"
+        },
+        {
+          "Name": "label",
+          "Value": "js/scripts.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA="
+        }
+      ]
+    },
+    {
+      "Route": "js/scripts.oyvx5yje4d.js",
+      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\wwwroot\\js\\scripts.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "982"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 18 May 2025 19:55:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6437,7 +6574,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dqle62frat"
+          "Value": "oyvx5yje4d"
         },
         {
           "Name": "label",
@@ -6445,13 +6582,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720="
+          "Value": "sha256-8EIAoCFmxPXh/Qs5VJWTUMSeuaskpLlPVF1w3mpyUTA="
         }
       ]
     },
     {
-      "Route": "js/scripts.dqle62frat.js.gz",
-      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-dqle62frat.gz",
+      "Route": "js/scripts.oyvx5yje4d.js.gz",
+      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-oyvx5yje4d.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6460,7 +6597,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "458"
+          "Value": "462"
         },
         {
           "Name": "Content-Type",
@@ -6468,11 +6605,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Q5Un8IEsBVvYl3vxwko9zxF7vGgboOQ/g627MbxXmyI=\""
+          "Value": "\"ylxySJmyEFKVLXPTZlQyANCg0UBRzM+clpmvow+IiPU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 14:26:30 GMT"
+          "Value": "Sun, 18 May 2025 19:55:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6490,7 +6627,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dqle62frat"
+          "Value": "oyvx5yje4d"
         },
         {
           "Name": "label",
@@ -6498,144 +6635,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Q5Un8IEsBVvYl3vxwko9zxF7vGgboOQ/g627MbxXmyI="
-        }
-      ]
-    },
-    {
-      "Route": "js/scripts.js",
-      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-dqle62frat.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.002178649237"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "458"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Q5Un8IEsBVvYl3vxwko9zxF7vGgboOQ/g627MbxXmyI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 14:26:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720="
-        }
-      ]
-    },
-    {
-      "Route": "js/scripts.js",
-      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\wwwroot\\js\\scripts.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "976"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 14:26:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-hSOKtaoLbtAX3QLxogVcaVg8Fv7Y6HTCcpJqVePv720="
-        }
-      ]
-    },
-    {
-      "Route": "js/scripts.js.gz",
-      "AssetFile": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\Debug\\net9.0\\compressed\\23p0dmzh9a-dqle62frat.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "458"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Q5Un8IEsBVvYl3vxwko9zxF7vGgboOQ/g627MbxXmyI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 14 May 2025 14:26:30 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Q5Un8IEsBVvYl3vxwko9zxF7vGgboOQ/g627MbxXmyI="
+          "Value": "sha256-ylxySJmyEFKVLXPTZlQyANCg0UBRzM+clpmvow+IiPU="
         }
       ]
     },

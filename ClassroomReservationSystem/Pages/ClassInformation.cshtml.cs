@@ -21,6 +21,7 @@ public class ClassInformationModel : PageModel
         public string InstructorName { get; set; } = string.Empty;
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+
     }
 
     public class FeedbackViewModel
@@ -54,7 +55,7 @@ public class ClassInformationModel : PageModel
             {
                 InstructorName = r.User != null ? r.User.FullName : "",
                 StartTime = r.StartTime,
-                EndTime = r.EndTime
+                EndTime = r.EndTime,
             })
             .ToListAsync();
 

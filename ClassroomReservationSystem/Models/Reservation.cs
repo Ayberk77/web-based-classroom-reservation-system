@@ -8,6 +8,7 @@ public class Reservation
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
     public string Status { get; set; } = string.Empty; // Pending, Approved, Rejected
+    public string? Note { get; set; } // Instructor note for conflicts/holidays
 
     public User? User { get; set; }
     public Classroom? Classroom { get; set; }

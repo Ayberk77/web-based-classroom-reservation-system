@@ -4,16 +4,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClassroomReservationSystem.Data;
 using ClassroomReservationSystem.Models;
+using System.Security.Claims;
 
 public class ReservationRequestModel : PageModel
 {
     private readonly ApplicationDbContext _context;
-    public ReservationRequestModel(ApplicationDbContext context) => _context = context;
+    private readonly HolidayService _holidayService;
+    private readonly IEmailSender _emailSender;
+    private readonly ILogService _logService;
+
+    public ReservationRequestModel(ApplicationDbContext context, HolidayService holidayService, IEmailSender emailSender, ILogService logService)
+    {
+        _context = context;
+        _holidayService = holidayService;
+        _emailSender = emailSender;
+        _logService = logService;
+    }
 
     [BindProperty]
     public InputModel Input { get; set; } = new();
     public List<SelectListItem> ClassroomOptions { get; set; } = new();
     public string WarningMessage { get; set; } = string.Empty;
+
+    [BindProperty]
+    public bool ConfirmAnyway { get; set; } = false;
+    [BindProperty]
+    public string InstructorNote { get; set; } = string.Empty;
 
     public class InputModel
     {
@@ -56,38 +72,45 @@ public class ReservationRequestModel : PageModel
             return Page();
         }
 
-        var holidays = new List<DateTime> {
-            new DateTime(2025, 1, 1), new DateTime(2025, 4, 23),
-            new DateTime(2025, 5, 1), new DateTime(2025, 5, 19)
-        };
-
         var reservations = new List<Reservation>();
+        bool hasConflict = false, hasHoliday = false;
 
         for (var date = term.StartDate.Date; date <= term.EndDate.Date; date = date.AddDays(1))
         {
             if (date.DayOfWeek != Input.DayOfWeek) continue;
 
-            if (holidays.Contains(date))
-            {
-                WarningMessage = $"{date:yyyy-MM-dd} is a holiday. Cannot reserve.";
-                await OnGetAsync();
-                return Page();
-            }
-
             var startDateTime = date + Input.StartTime;
             var endDateTime = date + Input.EndTime;
 
-            var conflict = await _context.Reservations.AnyAsync(r =>
+            bool isHoliday = await _holidayService.IsHolidayAsync(date);
+            bool isConflict = await _context.Reservations.AnyAsync(r =>
                 r.ClassroomId == Input.ClassroomId &&
                 r.Status == "Approved" &&
                 ((startDateTime < r.EndTime) && (r.StartTime < endDateTime)));
 
-            if (conflict)
-            {
-                WarningMessage = $"Conflict on {date:yyyy-MM-dd}. Request aborted.";
-                await OnGetAsync();
-                return Page();
-            }
+            if (isHoliday) hasHoliday = true;
+            if (isConflict) hasConflict = true;
+        }
+
+        if ((hasHoliday || hasConflict) && !ConfirmAnyway)
+        {
+            WarningMessage = "Your reservation conflicts with another or falls on a holiday. Confirm to proceed.";
+            await OnGetAsync();
+            return Page();
+        }
+
+        for (var date = term.StartDate.Date; date <= term.EndDate.Date; date = date.AddDays(1))
+        {
+            if (date.DayOfWeek != Input.DayOfWeek) continue;
+
+            var startDateTime = date + Input.StartTime;
+            var endDateTime = date + Input.EndTime;
+
+            bool isHoliday = await _holidayService.IsHolidayAsync(date);
+            bool isConflict = await _context.Reservations.AnyAsync(r =>
+                r.ClassroomId == Input.ClassroomId &&
+                r.Status == "Approved" &&
+                ((startDateTime < r.EndTime) && (r.StartTime < endDateTime)));
 
             reservations.Add(new Reservation
             {
@@ -95,12 +118,26 @@ public class ReservationRequestModel : PageModel
                 UserId = instructor.Id,
                 StartTime = startDateTime,
                 EndTime = endDateTime,
-                Status = "Pending"
+                Status = "Pending",
+                Note = (isHoliday || isConflict) ? InstructorNote : null
             });
         }
 
         _context.Reservations.AddRange(reservations);
         await _context.SaveChangesAsync();
+
+        var classroom = await _context.Classrooms.FindAsync(Input.ClassroomId);
+        await _logService.LogActionAsync(
+            instructor.Id,
+            $"Submitted reservation request for classroom: {classroom?.Name ?? "Unknown"} ({Input.DayOfWeek} {Input.StartTime}-{Input.EndTime})",
+            "Success"
+        );
+
+        if ((hasHoliday || hasConflict) && !string.IsNullOrWhiteSpace(instructor.Email))
+        {
+            await _emailSender.SendEmailAsync(instructor.Email, "Reservation Warning",
+                "Your reservation includes dates that fall on a public holiday or conflict with existing bookings. Please ensure you intended this.");
+        }
 
         return RedirectToPage("/Instructor/Index");
     }

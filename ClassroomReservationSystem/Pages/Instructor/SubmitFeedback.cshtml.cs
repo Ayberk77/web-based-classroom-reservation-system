@@ -4,27 +4,27 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ClassroomReservationSystem.Data;
 using ClassroomReservationSystem.Models;
+using System.Security.Claims;
 
 public class SubmitFeedbackModel : PageModel
 {
     private readonly ApplicationDbContext _context;
     private readonly IEmailSender _emailSender;
     private readonly IConfiguration _config;
+    private readonly ILogService _logService;
 
-    public SubmitFeedbackModel(ApplicationDbContext context, IEmailSender emailSender, IConfiguration config)
+    public SubmitFeedbackModel(ApplicationDbContext context, IEmailSender emailSender, IConfiguration config, ILogService logService)
     {
         _context = context;
         _emailSender = emailSender;
         _config = config;
+        _logService = logService;
     }
-
 
     public List<SelectListItem> Classrooms { get; set; } = new();
 
     [BindProperty]
     public FeedbackInputModel Input { get; set; } = new();
-
-
 
     public class FeedbackInputModel
     {
@@ -58,6 +58,8 @@ public class SubmitFeedbackModel : PageModel
         var instructor = await _context.Users.FirstOrDefaultAsync(u => u.Email == userEmail);
         if (instructor == null) return Unauthorized();
 
+        var classroom = await _context.Classrooms.FindAsync(Input.ClassroomId);
+
         var feedback = new Feedback
         {
             ClassroomId = Input.ClassroomId,
@@ -69,9 +71,13 @@ public class SubmitFeedbackModel : PageModel
         _context.Feedbacks.Add(feedback);
         await _context.SaveChangesAsync();
 
-        var adminEmail = _config["SmtpSettings:AdminEmail"] ?? throw new InvalidOperationException("Admin email not configured");
+        await _logService.LogActionAsync(
+            instructor.Id,
+            $"Submitted feedback for classroom {classroom?.Name ?? $"ID {Input.ClassroomId}"}",
+            "Success"
+        );
 
-        var classroom = await _context.Classrooms.FindAsync(Input.ClassroomId);
+        var adminEmail = _config["SmtpSettings:AdminEmail"] ?? throw new InvalidOperationException("Admin email not configured");
 
         await _emailSender.SendEmailAsync(
             adminEmail,
@@ -82,10 +88,7 @@ public class SubmitFeedbackModel : PageModel
             $"Comment: {Input.Comment}"
         );
 
-
-
-
         TempData["Message"] = "Feedback submitted successfully.";
-        return RedirectToPage(); // redirect to clear form
+        return RedirectToPage();
     }
 }

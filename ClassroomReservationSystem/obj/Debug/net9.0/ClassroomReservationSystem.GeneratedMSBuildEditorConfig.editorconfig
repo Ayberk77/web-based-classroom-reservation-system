@@ -32,8 +32,16 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Account/Logs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Admin/EditInstructor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdEluc3RydWN0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Admin/EditReservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRWRpdFJlc2VydmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Admin/EditTerm.cshtml]
@@ -106,6 +114,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/TestError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/90553/Desktop/web-based-classroom-reservation-system/ClassroomReservationSystem/Pages/_ViewImports.cshtml]

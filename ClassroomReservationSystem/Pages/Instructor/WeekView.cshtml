@@ -5,78 +5,85 @@
     Layout = "_Layout";
 }
 
-
-<h1 class="mt-4">Weekly Reservation Schedule</h1>
-
-<a asp-page="/Instructor/Calendar" class="btn btn-outline-primary mb-3">
-    ← Back to Monthly View
-</a>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 
-<div id="calendar"></div>
+<h1 class="mt-4 mb-3">
+    <i class="bi bi-calendar-week me-2"></i>Weekly Reservation Schedule
+</h1>
+
+<a asp-page="/Instructor/Calendar" class="btn btn-outline-primary mb-4">
+    <i class="bi bi-arrow-left me-1"></i>Back to Monthly View
+</a>
+
+<div id="calendar" class="shadow-sm border rounded mb-5"></div>
 
 @section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'timeGridWeek',
-                initialDate: '@Model.SelectedWeek.ToString("yyyy-MM-dd")',
-                allDaySlot: false,
-                firstDay: 1,
-                dayHeaderContent: function(info) {
-                    return info.date.toLocaleDateString('en-US', { weekday: 'long' });
-                },
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'timeGridWeek',
+            initialDate: '@Model.SelectedWeek.ToString("yyyy-MM-dd")',
+            allDaySlot: false,
+            firstDay: 1,
+            headerToolbar: {
+                left: '',
+                center: 'title',
+                right: ''
+            },
+            contentHeight: 'auto',
+            dayHeaderContent: function(info) {
+                return info.date.toLocaleDateString('en-US', { weekday: 'long' });
+            },
+            eventTimeFormat: {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            },
+            slotLabelFormat: {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            },
+            eventContent: function (info) {
+                const start = new Date(info.event.start);
+                const end = new Date(info.event.end);
 
-                eventTimeFormat: {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: false
-                },
-                slotLabelFormat: {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: false
-                },
-                contentHeight: 'auto',
-                dayMaxEventRows: true,
-                eventContent: function (info) {
-                    const start = new Date(info.event.start);
-                    const end = new Date(info.event.end);
+                const formatTime = (date) => {
+                    return date.getHours().toString().padStart(2, '0') + ':' +
+                        date.getMinutes().toString().padStart(2, '0');
+                };
 
-                    const formatTime = (date) => {
-                        return date.getHours().toString().padStart(2, '0') + ':' +
-                            date.getMinutes().toString().padStart(2, '0');
-                    };
+                const timeRange = formatTime(start) + ' - ' + formatTime(end);
 
-                    const timeRange = formatTime(start) + ' - ' + formatTime(end);
+                return {
+                    html: `
+                        <div style="display:flex; flex-direction:column; justify-content:center; height:100%; font-size:0.9em; line-height:1.2;">
+                            <div><strong>${timeRange}</strong></div>
+                            <div>${info.event.title}</div>
+                        </div>
+                    `
+                };
+            },
 
-                    return {
-                        html: `
-                            <div style="display:flex; flex-direction:column; justify-content:center; height:100%; font-size:0.9em; line-height:1.2;">
-                                <div><strong>${timeRange}</strong></div>
-                                <div>${info.event.title}</div>
-                            </div>
-                        `
-                    };
-                },
-                events: [
-                    @foreach (var r in Model.Reservations)
+            events: [
+                @foreach (var r in Model.Reservations)
+                {
+                    <text>
                     {
-                        <text>
-                        {
-                            title: '@r.ClassroomName',
-                            start: '@r.StartTime.ToString("s")',
-                            end: '@r.EndTime.ToString("s")',
-                            backgroundColor: '@(r.Status == "Approved" ? "green" : r.Status == "Pending" ? "orange" : "red")'
-                        },
-                        </text>
-                    }
-                ]
-            });
-            calendar.render();
+                        title: '@r.ClassroomName',
+                        start: '@r.StartTime.ToString("s")',
+                        end: '@r.EndTime.ToString("s")',
+                        backgroundColor: '@(r.Status == "Approved" ? "#198754" : r.Status == "Pending" ? "#ffc107" : "#dc3545")'
+                    },
+                    </text>
+                }
+            ]
         });
-    </script>
+
+        calendar.render();
+    });
+</script>
 }

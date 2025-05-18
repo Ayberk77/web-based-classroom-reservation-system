@@ -26,7 +26,7 @@ public class ClassWeekViewModel : PageModel
 
         Reservations = await _context.Reservations
             .Include(r => r.User)
-            .Where(r => r.ClassroomId == classroomId && r.StartTime >= SelectedWeek && r.StartTime < weekEnd)
+            .Where(r => r.ClassroomId == classroomId && r.Status == "Approved" && r.StartTime >= SelectedWeek && r.StartTime < weekEnd)
             .Select(r => new ReservationViewModel
             {
                 InstructorName = r.User != null ? r.User.FullName : "",

@@ -5,30 +5,48 @@
     Layout = "_Layout";
 }
 
-<h2>Submit Feedback</h2>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
-<form method="post">
+<h1 class="mt-4 mb-4">
+    <i class="bi bi-chat-left-text me-2"></i>Submit Feedback
+</h1>
+
+<form method="post" class="shadow-sm p-4 rounded border bg-light">
     <div class="mb-3">
-        <label for="ClassroomId" class="form-label">Select Classroom</label>
+        <label asp-for="Input.ClassroomId" class="form-label">Select Classroom</label>
         <select asp-for="Input.ClassroomId" class="form-select" asp-items="Model.Classrooms">
             <option value="">-- Select --</option>
         </select>
+        <span asp-validation-for="Input.ClassroomId" class="text-danger small"></span>
     </div>
 
     <div class="mb-3">
-        <label class="form-label">Rating</label><br />
-        @for (int i = 1; i <= 5; i++)
-        {
-            <label class="me-2">
-                <input type="radio" asp-for="Input.Rating" value="@i" /> @i ★
-            </label>
-        }
+        <label class="form-label">Rating</label>
+        <div class="d-flex gap-3 align-items-center">
+            @for (int i = 1; i <= 5; i++)
+            {
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="Input.Rating" value="@i" id="rating-@i" />
+                    <label class="form-check-label" for="rating-@i">@i ★</label>
+                </div>
+            }
+        </div>
+        <span asp-validation-for="Input.Rating" class="text-danger small"></span>
     </div>
 
     <div class="mb-3">
-        <label for="Comment" class="form-label">Comment</label>
+        <label asp-for="Input.Comment" class="form-label">Comment</label>
         <textarea asp-for="Input.Comment" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Input.Comment" class="text-danger small"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="mt-4">
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-send me-1"></i>Submit
+        </button>
+    </div>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

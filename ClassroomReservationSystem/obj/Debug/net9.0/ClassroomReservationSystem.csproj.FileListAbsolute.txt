@@ -10,6 +10,10 @@ C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservati
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Azure.Core.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Azure.Identity.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\BCrypt.Net-Next.dll
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Google.Apis.dll
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Google.Apis.Auth.dll
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Google.Apis.Calendar.v3.dll
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Google.Apis.Core.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Humanizer.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -52,6 +56,7 @@ C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservati
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Mono.TextTemplating.dll
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.ClientModel.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.CodeDom.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.Composition.AttributedModel.dll
@@ -63,6 +68,7 @@ C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservati
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.Drawing.Common.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.Formats.Asn1.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.Management.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.Memory.Data.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.Runtime.Caching.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\System.Security.Cryptography.ProtectedData.dll
@@ -143,6 +149,7 @@ C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservati
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\runtimes\win\lib\net7.0\System.Management.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
@@ -163,10 +170,9 @@ C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservati
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\1yepcx7yb6-hw7eaup9v4.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\d5dfaec9f5-w9gruc5uo1.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\uxkkzo1kzs-yp87i3fbss.gz
-C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\6zb96quaig-b9sayid5wm.gz
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\4ynqhprdz8-mf45fbw2f4.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\x3mmin357j-61n19gt1b8.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\1doma6mglm-xnqwbb6zwd.gz
-C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\23p0dmzh9a-dqle62frat.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\gsw2mf8scc-xtxxf3hu2r.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\ztbpe7ba3j-bqjiyaj88i.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\5tjwumnn4o-c2jlpeoesf.gz
@@ -227,6 +233,8 @@ C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservati
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\b7y9ocv4fi-muycvpuwrr.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\9ehql6jqyz-87fc7y1x7t.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\1iv01glotv-mlv21k5csn.gz
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\rb2ht2z53u-aev8qbxf4f.gz
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\f8et2p74be-aev8qbxf4f.gz
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -242,6 +250,5 @@ C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservati
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\ClassroomReservationSystem.pdb
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\ClassroomReservationSystem.genruntimeconfig.cache
 C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\ref\ClassroomReservationSystem.dll
-C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\4ynqhprdz8-mf45fbw2f4.gz
-C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\rb2ht2z53u-aev8qbxf4f.gz
-C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\f8et2p74be-aev8qbxf4f.gz
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\6zb96quaig-b9sayid5wm.gz
+C:\Users\90553\Desktop\web-based-classroom-reservation-system\ClassroomReservationSystem\obj\Debug\net9.0\compressed\23p0dmzh9a-oyvx5yje4d.gz

@@ -9,6 +9,9 @@ public class CalendarModel : PageModel
 
     public List<ReservationViewModel> Reservations { get; set; } = new();
 
+    public string CurrentWeek { get; set; } = "";
+
+
     public class ReservationViewModel
     {
         public string ClassroomName { get; set; } = string.Empty;

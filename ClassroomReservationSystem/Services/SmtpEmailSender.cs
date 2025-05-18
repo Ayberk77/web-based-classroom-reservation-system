@@ -6,34 +6,42 @@ using System.Threading.Tasks;
 public class SmtpEmailSender : IEmailSender
 {
     private readonly IConfiguration _config;
-    public SmtpEmailSender(IConfiguration config) => _config = config;
+    private readonly bool _emailEnabled;
+
+    public SmtpEmailSender(IConfiguration config)
+    {
+        _config = config;
+        _emailEnabled = bool.TryParse(config["EmailEnabled"], out var enabled) && enabled;
+    }
 
     public async Task SendEmailAsync(string to, string subject, string body)
     {
-        var smtpSection = _config.GetSection("SmtpSettings");
+        if (!_emailEnabled)
+        {
+            Console.WriteLine($"[Email BLOCKED] To: {to}, Subject: {subject}");
+            return;
+        }
 
+        var smtpSection = _config.GetSection("SmtpSettings");
         var fromAddress = smtpSection["From"];
-        var PortAddress = smtpSection["Port"];
+        var portAddress = smtpSection["Port"];
         var enableSslSetting = smtpSection["EnableSsl"];
 
-        if (string.IsNullOrWhiteSpace(fromAddress))
-            throw new InvalidOperationException("SMTP 'From' address is not configured");
-        if (string.IsNullOrWhiteSpace(PortAddress))
-            throw new InvalidOperationException("SMTP 'From' address is not configured");
-        if (string.IsNullOrWhiteSpace(enableSslSetting))
-            throw new InvalidOperationException("SMTP EnableSsl config missing");
-
+        if (string.IsNullOrWhiteSpace(fromAddress)) throw new InvalidOperationException("SMTP 'From' is not configured");
+        if (string.IsNullOrWhiteSpace(portAddress)) throw new InvalidOperationException("SMTP 'Port' is not configured");
+        if (string.IsNullOrWhiteSpace(enableSslSetting)) throw new InvalidOperationException("SMTP 'EnableSsl' is not configured");
 
         var message = new MailMessage
         {
             From = new MailAddress(fromAddress),
             Subject = subject,
-            Body = body
+            Body = body,
+            IsBodyHtml = true
         };
 
         message.To.Add(to);
 
-        var client = new SmtpClient(smtpSection["Host"], int.Parse(PortAddress))
+        using var client = new SmtpClient(smtpSection["Host"], int.Parse(portAddress))
         {
             Credentials = new NetworkCredential(smtpSection["UserName"], smtpSection["Password"]),
             EnableSsl = bool.Parse(enableSslSetting)

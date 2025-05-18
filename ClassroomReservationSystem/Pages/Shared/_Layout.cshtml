@@ -14,6 +14,7 @@
     <title>@ViewData["Title"] - Classroom Reservation</title>
     <link href="~/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
     <style>
     #calendar {
         max-width: 900px;
@@ -21,9 +22,9 @@
     }
     .fc-event {
     white-space: normal !important;
-    font-size: 0.78rem;           /* biraz küçült */
-    line-height: 1.1;             /* daha sıkı satır aralığı */
-    padding: 2px 4px;             /* daraltılmış padding */
+    font-size: 0.78rem;           
+    line-height: 1.1;             
+    padding: 2px 4px;             
     text-align: left;
     word-break: break-word;
     overflow-wrap: break-word;
@@ -49,9 +50,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" asp-page="/Account/Settings">Settings</a></li>
+                    @if (HttpContextAccessor.HttpContext?.User?.IsInRole("Admin") == true){
                     <li><a class="dropdown-item" asp-page="/Account/Logs">Activity Log</a></li>
-                    <li><hr class="dropdown-divider" /></li>
+                    }
                     <li><a class="dropdown-item" asp-page="/Account/Logout">Logout</a></li>
                 </ul>
             </li>

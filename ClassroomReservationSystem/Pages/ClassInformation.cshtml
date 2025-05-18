@@ -5,10 +5,17 @@
     Layout = "_Layout";
 }
 
-<h1 class="mt-4">Classroom Schedule</h1>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+<h1 class="mt-4 mb-4">
+    <i class="bi bi-building me-2"></i>Classroom Schedule
+</h1>
 
 <form method="get" class="mb-4">
     <div class="input-group w-50">
+        <label class="input-group-text" for="classroomId"><i class="bi bi-door-closed"></i></label>
         <select class="form-select" name="classroomId" onchange="this.form.submit()">
             @foreach (var c in Model.Classrooms)
             {
@@ -18,56 +25,52 @@
     </div>
 </form>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-
-<div id="calendar"></div>
+@if (Model.SelectedClassroomId != 0)
+{
+    <div id="calendar" class="shadow-sm border rounded mb-5"></div>
+}
 
 @if (User.IsInRole("Admin") && Model.Feedbacks.Any())
 {
-    <h3 class="mt-4">Feedback Summary</h3>
-         @if (Model.AverageRating.HasValue)
-        {
-            <p><strong>Average Rating:</strong>
-                @Model.AverageRating.Value.ToString("0.0")
-                @{
-                    double rating = Model.AverageRating ?? 0;
-                }
+    <h3 class="mt-5"><i class="bi bi-star-half me-2"></i>Feedback Summary</h3>
 
-                @for (int i = 1; i <= 5; i++)
-                {
-                    if (i <= Math.Floor(rating))
-                    {
-                        <span class="text-warning">★</span> <!-- full -->
-                    }
-                    else if (i - rating < 1)
-                    {
-                        <span class="text-warning">⯪</span> <!-- half (you can customize symbol) -->
-                    }
-                    else
-                    {
-                        <span class="text-warning">☆</span> <!-- empty -->
-                    }
-                }
-
-            </p>
-        }
-        else
-        {
-            <p><strong>Average Rating:</strong> <span class="text-muted">No feedback</span></p>
+    @if (Model.AverageRating.HasValue)
+    {
+        <p><strong>Average Rating:</strong> @Model.AverageRating.Value.ToString("0.0")
+        @{
+            double rating = Model.AverageRating ?? 0;
         }
 
+        @for (int i = 1; i <= 5; i++)
+        {
+            if (i <= Math.Floor(rating))
+            {
+                <span class="text-warning">★</span>
+            }
+            else if (i - rating < 1)
+            {
+                <span class="text-warning">⯪</span>
+            }
+            else
+            {
+                <span class="text-warning">☆</span>
+            }
+        }
+        </p>
+    }
+    else
+    {
+        <p><strong>Average Rating:</strong> <span class="text-muted">No feedback</span></p>
+    }
 
-    <ul class="list-group">
+    <ul class="list-group mt-3">
         @foreach (var f in Model.Feedbacks)
         {
             <li class="list-group-item">
-                <strong>@f.InstructorName</strong> 
+                <strong>@f.InstructorName</strong>
                 @for (int i = 1; i <= 5; i++)
                 {
-                    <span class="text-warning">
-                        @(i <= f.Rating ? "★" : "☆")
-                    </span>
+                    <span class="text-warning">@(i <= f.Rating ? "★" : "☆")</span>
                 }
                 <br />
                 <span>@f.Comment</span>
@@ -76,13 +79,6 @@
         }
     </ul>
 }
-
-
-@if (Model.SelectedClassroomId != 0)
-{
-    <div id="calendar"></div>
-
-
 
 @section Scripts {
     <script>
@@ -102,14 +98,11 @@
                 eventContent: function (info) {
                     const start = new Date(info.event.start);
                     const end = new Date(info.event.end);
-
                     const formatTime = (date) => {
                         return date.getHours().toString().padStart(2, '0') + ':' +
                             date.getMinutes().toString().padStart(2, '0');
                     };
-
                     const timeRange = formatTime(start) + ' - ' + formatTime(end);
-
                     return {
                         html: `
                             <div style="display:flex; flex-direction:column; justify-content:center; height:100%; font-size:0.9em; line-height:1.2;">
@@ -125,26 +118,26 @@
                         title: '{r.InstructorName}',
                         start: '{r.StartTime:yyyy-MM-ddTHH:mm:ss}',
                         end: '{r.EndTime:yyyy-MM-ddTHH:mm:ss}',
-                        color: 'green'
+                        color: '#198754'
                     }}")))
-                ]
-            });
-            calendar.render();
-            setTimeout(() => {
-            const weekRows = document.querySelectorAll('.fc-daygrid-body tr');
-            weekRows.forEach(row => {
-                row.style.cursor = 'pointer';
-                row.addEventListener('click', () => {
-                    const firstCell = row.querySelector('[data-date]');
-                    if (!firstCell) return;
-                    const mondayDate = firstCell.getAttribute('data-date');
-                    const classroomId = '@Model.SelectedClassroomId';
-                    window.location.href = `ClassWeekView?week=${mondayDate}&classroomId=${classroomId}`;
-                });
-            });
-        }, 10);
+                ],
 
+                datesSet: function () {
+                    const weekRows = document.querySelectorAll('.fc-daygrid-body tr');
+                    weekRows.forEach(row => {
+                        row.style.cursor = 'pointer';
+                        row.addEventListener('click', () => {
+                            const firstCell = row.querySelector('[data-date]');
+                            if (!firstCell) return;
+                            const mondayDate = firstCell.getAttribute('data-date');
+                            const classroomId = '@Model.SelectedClassroomId';
+                            window.location.href = `ClassWeekView?week=${mondayDate}&classroomId=${classroomId}`;
+                        });
+                    });
+                }
+            });
+
+            calendar.render();
         });
     </script>
-}
 }

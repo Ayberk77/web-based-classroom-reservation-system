@@ -15,7 +15,12 @@ public class AdminTermsModel : PageModel
     public List<Term> Terms { get; set; } = new();
 
     [BindProperty]
-    public Term NewTerm { get; set; } = new();
+    public Term NewTerm { get; set; } = new Term
+    {
+        StartDate = DateTime.Today,
+        EndDate = DateTime.Today.AddDays(1)
+    };
+
 
     public async Task OnGetAsync()
     {
@@ -26,6 +31,18 @@ public class AdminTermsModel : PageModel
     {
         if (!ModelState.IsValid)
         {
+            Terms = await _context.Terms.OrderByDescending(t => t.StartDate).ToListAsync();
+            return Page();
+        }
+
+         bool conflict = await _context.Terms
+            .AnyAsync(t =>
+                NewTerm.StartDate <= t.EndDate &&
+                NewTerm.EndDate >= t.StartDate);
+
+        if (conflict)
+        {
+            ModelState.AddModelError(string.Empty, "This term overlaps with an existing term.");
             Terms = await _context.Terms.OrderByDescending(t => t.StartDate).ToListAsync();
             return Page();
         }

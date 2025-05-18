@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ClassroomReservationSystem.Data;
 using ClassroomReservationSystem.Models;
+using Microsoft.EntityFrameworkCore;
 
 public class EditTermModel : PageModel
 {
@@ -33,6 +34,18 @@ public class EditTermModel : PageModel
         var existing = await _context.Terms.FindAsync(Term.Id);
         if (existing == null)
             return NotFound();
+
+        bool conflict = await _context.Terms
+            .Where(t => t.Id != Term.Id) 
+            .AnyAsync(t =>
+                Term.StartDate <= t.EndDate &&
+                Term.EndDate >= t.StartDate);
+
+        if (conflict)
+        {
+            ModelState.AddModelError(string.Empty, "This term overlaps with another existing term.");
+            return Page();
+        }
 
         existing.Name = Term.Name;
         existing.StartDate = Term.StartDate;
