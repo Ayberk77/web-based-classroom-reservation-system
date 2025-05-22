@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj": {}
+    "C:\\Users\\90553\\Desktop\\Ceng 382 TERM PROJECT\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj": {
+    "C:\\Users\\90553\\Desktop\\Ceng 382 TERM PROJECT\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj",
+        "projectUniqueName": "C:\\Users\\90553\\Desktop\\Ceng 382 TERM PROJECT\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj",
         "projectName": "ClassroomReservationSystem",
-        "projectPath": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj",
+        "projectPath": "C:\\Users\\90553\\Desktop\\Ceng 382 TERM PROJECT\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj",
         "packagesPath": "C:\\Users\\90553\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\obj\\",
+        "outputPath": "C:\\Users\\90553\\Desktop\\Ceng 382 TERM PROJECT\\ClassroomReservationSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\90553\\AppData\\Roaming\\NuGet\\NuGet.Config"

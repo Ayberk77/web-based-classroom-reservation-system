@@ -20,8 +20,15 @@ public class AdminIndexModel : PageModel
     {
         InstructorCount = await _context.Users.CountAsync(u => u.Role == "Instructor");
         PendingReservations = await _context.Reservations.CountAsync(r => r.Status == "Pending");
-        var activeTerm = await _context.Terms.OrderByDescending(t => t.StartDate).FirstOrDefaultAsync();
+
+        var today = DateTime.Today;
+        var activeTerm = await _context.Terms
+            .Where(t => t.StartDate <= today && t.EndDate >= today)
+            .OrderBy(t => t.StartDate)
+            .FirstOrDefaultAsync();
+
         ActiveTerm = activeTerm != null ? activeTerm.Name : "No Active Term";
         ClassroomCount = await _context.Classrooms.CountAsync();
     }
+
 }

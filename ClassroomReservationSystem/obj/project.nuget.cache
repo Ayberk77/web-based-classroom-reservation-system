@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JWgwPu2cwsw=",
+  "dgSpecHash": "4fm1yQrsH9A=",
   "success": true,
-  "projectFilePath": "C:\\Users\\90553\\Desktop\\web-based-classroom-reservation-system\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj",
+  "projectFilePath": "C:\\Users\\90553\\Desktop\\Ceng 382 TERM PROJECT\\ClassroomReservationSystem\\ClassroomReservationSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\90553\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\90553\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

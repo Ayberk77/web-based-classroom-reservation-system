@@ -63,14 +63,13 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
-                        <div class="sb-sidenav-menu-heading">General</div>
-                            <a class="nav-link" asp-page="/ClassInformation">
+                        @if (HttpContextAccessor.HttpContext?.User?.IsInRole("Admin") == true)
+                        {
+                            <div class="sb-sidenav-menu-heading">General</div>
+                            <a class="nav-link" asp-page="../ClassInformation">
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
                                 Class Schedule
                             </a>
-
-                        @if (HttpContextAccessor.HttpContext?.User?.IsInRole("Admin") == true)
-                        {
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" asp-page="/Admin/Index">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -83,6 +82,11 @@
                         }
                         else if (HttpContextAccessor.HttpContext?.User?.IsInRole("Instructor") == true)
                         {
+                            <div class="sb-sidenav-menu-heading">General</div>
+                            <a class="nav-link" asp-page="../ClassInformation">
+                                <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+                                Class Schedule
+                            </a>
                             <div class="sb-sidenav-menu-heading">Core</div>
                             <a class="nav-link" asp-page="/Instructor/Index">
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
